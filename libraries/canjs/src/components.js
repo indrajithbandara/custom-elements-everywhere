@@ -103,8 +103,12 @@ Component.extend({
     bool: {type: 'boolean', value: true},
     num: {type: 'number', value: 42},
     str: {type: 'string', value: 'CanJS'},
-    arr: {type: 'any', value: ['C', 'a', 'n', 'j', 's']},
-    obj: {type: 'any', value: { org: 'canjs', repo: 'canjs' }}
+    arr: {type: 'any', value: function() {
+      return ['C', 'a', 'n', 'j', 's'];
+    }},
+    obj: {type: 'any', value: function() {
+      return { org: 'canjs', repo: 'canjs' }
+    }}
   })
 });
 
@@ -128,8 +132,12 @@ Component.extend({
     bool: {type: 'boolean', value: true},
     num: {type: 'number', value: 42},
     str: {type: 'string', value: 'CanJS'},
-    arr: {type: 'any', value: ['C', 'a', 'n', 'j', 's']},
-    obj: {type: 'any', value: { org: 'canjs', repo: 'canjs' }}
+    arr: {type: 'any', value: function() {
+      return ['C', 'a', 'n', 'j', 's'];
+    }},
+    obj: {type: 'any', value: function() {
+      return { org: 'canjs', repo: 'canjs' }
+    }}
   })
 });
 
@@ -144,18 +152,20 @@ Component.extend({
   `),
   ViewModel: DefineMap.extend({
     eventHandled: {type: 'boolean', value: false},
-    handleEvent: function() {
+    handleTestEvent: function() {
       this.eventHandled = true;
     }
   }),
   events: {
     inserted: function() {
+      let viewModel = this.viewModel;
       let wc = this.element.querySelector('#wc');
-      wc.addEventListener('camelEvent', this.viewModel.handleEvent.bind(this.viewModel));
+      this.handleTestEventListener = viewModel.handleTestEvent.bind(viewModel);
+      wc.addEventListener('camelEvent', this.handleTestEventListener);
     },
     removed: function() {
       let wc = this.element.querySelector('#wc');
-      wc.removeEventListener('camelEvent', this.viewModel.handleEvent.bind(this.viewModel));
+      wc.removeEventListener('camelEvent', this.handleTestEventListener);
     }
   }
 });
