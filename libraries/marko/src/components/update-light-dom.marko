@@ -1,0 +1,10 @@
+class {
+  onCreate () {
+    this.state = { content:'START'  };
+  }
+  UPDATE () {
+    this.state.content = 'FINISH';
+  }
+}
+
+<ce-with-children>${state.content}</ce-with-children>

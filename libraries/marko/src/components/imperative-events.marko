@@ -1,0 +1,18 @@
+class {
+  onCreate() {
+    this.state = {
+      eventHandled: false
+    };
+    this.handleEvent = this.handleEvent.bind(this);
+  }
+  onMount() {
+    this.getEl('ce').addEventListener('camelEvent', this.handleEvent);
+  }
+  handleEvent(e) {
+    this.state.eventHandled = true;
+  }
+}
+<div>
+  <div id="handled">${state.eventHandled.toString()}</div>
+  <ce-with-event key="ce"/>
+</div>

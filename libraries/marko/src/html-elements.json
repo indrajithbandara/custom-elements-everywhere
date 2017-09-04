@@ -1,0 +1,15 @@
+{
+   "<ce-without-children>": {
+      "import":"../../__shared__/webcomponents/src/ce-with-properties"
+   },
+   "<ce-with-children>": {
+      "import":"../../__shared__/webcomponents/src/ce-with-children"
+   },
+   "<ce-with-properties>": {
+      "import":"../../__shared__/webcomponents/src/ce-with-properties"
+   },
+   "<ce-with-event>": {
+      "import":"../../__shared__/webcomponents/src/ce-with-event"
+   },
+   "<ce-unregistered>": {}
+}

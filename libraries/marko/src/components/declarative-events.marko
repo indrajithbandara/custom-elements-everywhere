@@ -1,0 +1,41 @@
+class {
+  onCreate() {
+    this.state = {
+      lowercaseHandled: false,
+      kebabHandled: false,
+      camelHandled: false,
+      capsHandled: false,
+      pascalHandled: false
+    };
+  }
+  handleLowercaseEvent(e) {
+    this.state.lowercaseHandled = true;
+  }
+  handleKebabEvent(e) {
+    this.state.kebabHandled = true;
+  }
+  handleCamelEvent(e) {
+    this.state.camelHandled = true;
+  }
+  handleCapsEvent(e) {
+    this.state.capsHandled = true;
+  }
+  handlePascalEvent(e) {
+    this.state.pascalHandled = true;
+  }
+}
+
+<div>
+  <ce-with-event
+      on-lowercaseevent('handleLowercaseEvent')
+      on-kebab-event('handleKebabEvent')
+      on-camelEvent('handleCamelEvent')
+      on-CAPSevent('handleCapsEvent')
+      on-PascalEvent('handlePascalEvent') />
+
+  <div id="lowercase">${state.lowercaseHandled.toString()}</div>
+  <div id="kebab">${state.kebabHandled.toString()}</div>
+  <div id="camel">${state.camelHandled.toString()}</div>
+  <div id="caps">${state.capsHandled.toString()}</div>
+  <div id="pascal">${state.pascalHandled.toString()}</div>
+</div>

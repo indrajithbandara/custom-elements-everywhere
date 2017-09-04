@@ -1,0 +1,17 @@
+class {
+  onCreate () {
+    this.state = { showWC: true };
+  }
+  TOGGLE () {
+    this.state.showWC = !this.state.showWC;
+  }
+}
+
+<div>
+  <if(state.showWC)>
+    <ce-with-children/>
+  </if>
+  <else>
+    <div id="dummy">Dummy view</div>
+  </else>
+</div>
